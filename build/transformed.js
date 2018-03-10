@@ -996,7 +996,17 @@ var React = __webpack_require__(4);
 var ReactDOM = __webpack_require__(15);
 var App = __webpack_require__(14);
 
-ReactDOM.render(React.createElement(App, null), document.getElementById('app'));
+var container = document.getElementById('app');
+
+ReactDOM.render(React.createElement(
+    'div',
+    null,
+    React.createElement(
+        'p',
+        null,
+        'Hello!'
+    )
+), container);
 
 /***/ }),
 /* 17 */
