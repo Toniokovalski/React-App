@@ -5,20 +5,46 @@ var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
     inject: 'body'
 });
 
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractStyles = new ExtractTextPlugin({
+    filename: 'main.css',
+});
+
 module.exports = {
     entry: __dirname + '/app/index.js',
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules|bower_components/,
-                loader: 'babel-loader'
-            }
-        ]
-    },
     output: {
         filename: 'transformed.js',
         path: __dirname + '/build'
     },
-    plugins: [HTMLWebpackPluginConfig]
+    module: {
+        loaders: [
+            {
+                test: /\.js$/,
+                exclude:/(node_modules|bower_components)/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                use: extractStyles.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }],
+                    fallback: "style-loader"
+                })
+            },
+            {
+                test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'url-loader',
+                options: {
+                    limit: 10240
+                }
+            }
+        ]
+    },
+    plugins: [
+        HTMLWebpackPluginConfig,
+        extractStyles
+    ]
 };

@@ -1,0 +1,50 @@
+
+@import '~bootstrap/dist/css/bootstrap.css';
+
+@import '~bootstrap/dist/css/bootstrap-grid.css';
+
+#app {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.row {
+    align-items: center;
+}
+
+i.fa {
+    margin: 0.5em;
+    font-size: 24px;
+}
+
+span {
+    display: inline-block;
+    margin: 0.5em;
+    text-align: center;
+    background-color: #ccc;
+    width: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.selected {
+    background-color: #eee;
+    color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.used {
+    background-color: #aaddaa;
+    color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
