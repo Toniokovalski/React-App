@@ -30,8 +30,9 @@ const Button = (props) => {
 const Answer = (props) => {
     return (
         <div className="col-5">
-            <span>5</span>
-            <span>6</span>
+            {props.selectedNumbers.map((number, i) =>
+                <span key={i}>{number}</span>
+            )}
         </div>
     )
 };
@@ -50,15 +51,22 @@ const Numbers = (props) => {
 Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedNumbers: [2, 5],
+        };
+    }
+
     render() {
         return (
             <div className="container">
                 <h3>Game Nine</h3>
                 <hr />
                 <div className="row">
-                    <Stars/>
-                    <Button/>
-                    <Answer/>
+                    <Stars />
+                    <Button />
+                    <Answer selectedNumbers={this.state.selectedNumbers} />
                 </div>
                 <br />
                 <Numbers />
