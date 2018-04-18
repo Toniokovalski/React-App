@@ -25,6 +25,9 @@ span {
     width: 24px;
     border-radius: 50%;
     cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 .card {
