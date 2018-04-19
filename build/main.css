@@ -11021,14 +11021,14 @@ html {
   }
 }#app {
   max-width: 1024px;
-  margin: 0 auto; }
+  margin: 30px auto 0; }
 
 .row {
   align-items: center; }
 
-i.fa {
-  margin: 0.5em;
-  font-size: 24px; }
+i.fa-size {
+  margin-right: 1em;
+  font-size: 1.4em; }
 
 span {
   display: inline-block;
@@ -11037,7 +11037,10 @@ span {
   background-color: #ccc;
   width: 24px;
   border-radius: 50%;
-  cursor: pointer; }
+  cursor: pointer;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none; }
 
 .card {
   flex-direction: row;

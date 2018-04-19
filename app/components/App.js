@@ -3,6 +3,23 @@ var ReactDOM = require('react-dom');
 
 var container = document.getElementById('app');
 
+var possibleCombinationSum = function(arr, n) {
+    if (arr.indexOf(n) >= 0) { return true; }
+    if (arr[0] > n) { return false; }
+    if (arr[arr.length - 1] > n) {
+        arr.pop();
+        return possibleCombinationSum(arr, n);
+    }
+    var listSize = arr.length, combinationsCount = (1 << listSize)
+    for (var i = 1; i < combinationsCount ; i++ ) {
+        var combinationSum = 0;
+        for (var j=0 ; j < listSize ; j++) {
+            if (i & (1 << j)) { combinationSum += arr[j]; }
+        }
+        if (n === combinationSum) { return true; }
+    }
+    return false;
+};
 
 const Stars = (props) => {
     let stars = [];
@@ -87,21 +104,41 @@ const Numbers = (props) => {
 };
 Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+const DoneFrame = (props) => {
+    return (
+        <div className="text-center">
+            <h2>{props.doneStatus}</h2>
+            <br />
+            <button className="btn btn-secondary" onClick={props.resetGame}>
+                Play Again
+            </button>
+        </div>
+    );
+};
+
+const initialState = {
+    selectedNumbers: [],
+    randomNumberOfStars: 1 + Math.floor(Math.random()*9),
+    usedNumbers: [],
+    answerIsCorrect: null,
+    redraws: 5,
+    doneStatus: null,
+};
+
 class Game extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selectedNumbers: [],
-            randomNumberOfStars: 1 + Math.floor(Math.random()*9),
-            usedNumbers: [],
-            answerIsCorrect: null,
-            redraws: 5,
-        };
+        this.state = initialState;
         this.selectNumber = this.selectNumber.bind(this);
         this.unselectNumber = this.unselectNumber.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
         this.acceptAnswer = this.acceptAnswer.bind(this);
         this.redraw = this.redraw.bind(this);
+        this.resetGame = this.resetGame.bind(this);
+    };
+
+    resetGame() {
+        this.setState(prevState => (initialState));
     };
 
     selectNumber(clickedNumber) {
@@ -131,7 +168,7 @@ class Game extends React.Component {
             selectedNumbers: [],
             answerIsCorrect: null,
             randomNumberOfStars: 1 + Math.floor(Math.random()*9)
-        }));
+        }), this.updateDoneStatus);
     };
 
     redraw() {
@@ -141,7 +178,26 @@ class Game extends React.Component {
             selectedNumbers: [],
             answerIsCorrect: null,
             redraws: prevState.redraws - 1,
-        }));
+        }), this.updateDoneStatus);
+    };
+
+    possibleSolutions({randomNumberOfStars, usedNumbers}) {
+        const possibleNumbers = Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(number =>
+            usedNumbers.indexOf(number) === -1
+        );
+
+        return possibleCombinationSum(possibleNumbers, randomNumberOfStars);
+    };
+
+    updateDoneStatus() {
+        this.setState(prevState => {
+            if (prevState.usedNumbers.length === 9) {
+                return {doneStatus: 'Done. Nice!'};
+            }
+            if (prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
+                return {doneStatus: 'Game Over!'}
+            }
+        });
     };
 
     render() {
@@ -150,7 +206,8 @@ class Game extends React.Component {
             selectedNumbers,
             answerIsCorrect,
             usedNumbers,
-            redraws
+            redraws,
+            doneStatus
         } = this.state;
 
         return (
@@ -164,7 +221,10 @@ class Game extends React.Component {
                     <Answer selectedNumbers={selectedNumbers} unselectNumber={this.unselectNumber} />
                 </div>
                 <br />
-                <Numbers selectedNumbers={selectedNumbers} selectNumber={this.selectNumber} usedNumbers={usedNumbers} />
+                {doneStatus ?
+                    <DoneFrame resetGame={this.resetGame} doneStatus={doneStatus} /> :
+                    <Numbers selectedNumbers={selectedNumbers} selectNumber={this.selectNumber} usedNumbers={usedNumbers} />
+                }
             </div>
         )
     }

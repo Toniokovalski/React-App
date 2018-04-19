@@ -19356,11 +19356,9 @@ var ReactDOM = __webpack_require__(8);
 var container = document.getElementById('app');
 
 const Stars = props => {
-    const numberOfStars = 1 + Math.floor(Math.random() * 9);
-
     let stars = [];
-    for (let i = 0; i < numberOfStars; i++) {
-        stars.push(React.createElement('i', { key: i, className: 'fa fa-star' }));
+    for (let i = 0; i < props.numberOfStars; i++) {
+        stars.push(React.createElement('i', { key: i, className: 'fa fa-star fa-size' }));
     }
 
     return React.createElement(
@@ -19371,13 +19369,49 @@ const Stars = props => {
 };
 
 const Button = props => {
+    let button;
+
+    switch (props.answerIsCorrect) {
+        case true:
+            button = React.createElement(
+                'button',
+                { className: 'btn btn-success', onClick: props.acceptAnswer },
+                React.createElement('i', { className: 'fa fa-check' })
+            );
+            break;
+        case false:
+            button = React.createElement(
+                'button',
+                { className: 'btn btn-danger' },
+                React.createElement('i', { className: 'fa fa-times' })
+            );
+            break;
+        default:
+            button = React.createElement(
+                'button',
+                { className: 'btn', onClick: props.checkAnswer, disabled: props.selectedNumbers.length === 0 },
+                React.createElement(
+                    'i',
+                    { className: 'fa' },
+                    '='
+                )
+            );
+            break;
+    }
+
     return React.createElement(
         'div',
-        { className: 'col-2' },
+        { className: 'col-2 text-center' },
+        button,
+        React.createElement('br', null),
+        ' ',
+        React.createElement('br', null),
         React.createElement(
             'button',
-            null,
-            '='
+            { className: 'btn btn-warning btn-sm', onClick: props.redraw, disabled: props.redraws === 0 },
+            React.createElement('i', { className: 'fa fa-refresh' }),
+            ' ',
+            props.redraws
         )
     );
 };
@@ -19386,20 +19420,23 @@ const Answer = props => {
     return React.createElement(
         'div',
         { className: 'col-5' },
-        React.createElement(
+        props.selectedNumbers.map((number, i) => React.createElement(
             'span',
-            null,
-            '5'
-        ),
-        React.createElement(
-            'span',
-            null,
-            '6'
-        )
+            { key: i, onClick: () => props.unselectNumber(number) },
+            number
+        ))
     );
 };
 
 const Numbers = props => {
+    const numberClassName = number => {
+        if (props.usedNumbers.indexOf(number) >= 0) {
+            return 'used';
+        }
+        if (props.selectedNumbers.indexOf(number) >= 0) {
+            return 'selected';
+        }
+    };
     return React.createElement(
         'div',
         { className: 'card text-center' },
@@ -19408,16 +19445,84 @@ const Numbers = props => {
             null,
             Numbers.list.map((number, i) => React.createElement(
                 'span',
-                { key: i },
+                { key: i, className: numberClassName(number), onClick: () => props.selectNumber(number) },
                 number
             ))
         )
     );
 };
-Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selectedNumbers: [],
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+            usedNumbers: [],
+            answerIsCorrect: null,
+            redraws: 5
+        };
+        this.selectNumber = this.selectNumber.bind(this);
+        this.unselectNumber = this.unselectNumber.bind(this);
+        this.checkAnswer = this.checkAnswer.bind(this);
+        this.acceptAnswer = this.acceptAnswer.bind(this);
+        this.redraw = this.redraw.bind(this);
+    }
+
+    selectNumber(clickedNumber) {
+        if (this.state.selectedNumbers.indexOf(clickedNumber) >= 0) {
+            return;
+        }
+        this.setState(prevState => ({
+            answerIsCorrect: null,
+            selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+        }));
+    }
+
+    unselectNumber(clickedNumber) {
+        this.setState(prevState => ({
+            answerIsCorrect: null,
+            selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
+        }));
+    }
+
+    checkAnswer() {
+        this.setState(prevState => ({
+            answerIsCorrect: prevState.randomNumberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
+        }));
+    }
+
+    acceptAnswer() {
+        this.setState(prevState => ({
+            usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
+            selectedNumbers: [],
+            answerIsCorrect: null,
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 9)
+        }));
+    }
+
+    redraw() {
+        if (this.state.redraws === 0) {
+            return;
+        }
+        this.setState(prevState => ({
+            randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+            selectedNumbers: [],
+            answerIsCorrect: null,
+            redraws: prevState.redraws - 1
+        }));
+    }
+
     render() {
+        const {
+            randomNumberOfStars,
+            selectedNumbers,
+            answerIsCorrect,
+            usedNumbers,
+            redraws
+        } = this.state;
+
         return React.createElement(
             'div',
             { className: 'container' },
@@ -19430,12 +19535,13 @@ class Game extends React.Component {
             React.createElement(
                 'div',
                 { className: 'row' },
-                React.createElement(Stars, null),
-                React.createElement(Button, null),
-                React.createElement(Answer, null)
+                React.createElement(Stars, { numberOfStars: randomNumberOfStars }),
+                React.createElement(Button, { selectedNumbers: selectedNumbers, checkAnswer: this.checkAnswer, answerIsCorrect: answerIsCorrect,
+                    acceptAnswer: this.acceptAnswer, redraw: this.redraw, redraws: redraws }),
+                React.createElement(Answer, { selectedNumbers: selectedNumbers, unselectNumber: this.unselectNumber })
             ),
             React.createElement('br', null),
-            React.createElement(Numbers, null)
+            React.createElement(Numbers, { selectedNumbers: selectedNumbers, selectNumber: this.selectNumber, usedNumbers: usedNumbers })
         );
     }
 }
