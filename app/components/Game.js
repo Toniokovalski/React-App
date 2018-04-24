@@ -109,6 +109,24 @@ export default class Game extends React.Component {
         });
     }
 
+    handleUsedNumber(number) {
+        const { numberList } = this.state;
+        const newList = numberList.map((item) => {
+            if (item.number === number) {
+                return Object.assign({}, item, {
+                    isUsed: !item.isUsed
+                })
+            }
+
+            return item;
+        });
+
+        this.setState({
+            numberList: newList,
+            answerIsCorrect: null,
+        });
+    }
+
     getSelectedItems(numbers) {
         return numbers.filter((item) => item.isSelected);
     }
