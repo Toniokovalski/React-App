@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(14);
+} else {
+  module.exports = __webpack_require__(15);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,7 +269,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -294,21 +309,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
-} else {
-  module.exports = __webpack_require__(15);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -429,7 +429,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -489,7 +489,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -506,7 +506,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -671,7 +671,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(20);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 9 */
@@ -874,11 +874,11 @@ module.exports = containsNode;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_css__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_css__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_font_awesome_css_font_awesome_min_css__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_font_awesome_css_font_awesome_min_css__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_font_awesome_css_font_awesome_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__node_modules_font_awesome_css_font_awesome_min_css__);
-var React = __webpack_require__(2);
+var React = __webpack_require__(0);
 var ReactDOM = __webpack_require__(8);
 var App = __webpack_require__(25);
 
@@ -899,7 +899,7 @@ var App = __webpack_require__(25);
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(1),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.portal"):60106,u=q?Symbol["for"]("react.fragment"):60107,v=q?Symbol["for"]("react.strict_mode"):60108,w=q?Symbol["for"]("react.provider"):60109,x=q?Symbol["for"]("react.context"):60110,y=q?Symbol["for"]("react.async_mode"):60111,z=q?Symbol["for"]("react.forward_ref"):60112,A="function"===
+var m=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(2),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.portal"):60106,u=q?Symbol["for"]("react.fragment"):60107,v=q?Symbol["for"]("react.strict_mode"):60108,w=q?Symbol["for"]("react.provider"):60109,x=q?Symbol["for"]("react.context"):60110,y=q?Symbol["for"]("react.async_mode"):60111,z=q?Symbol["for"]("react.forward_ref"):60112,A="function"===
 typeof Symbol&&Symbol.iterator;function B(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var C={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function D(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||C}D.prototype.isReactComponent={};D.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?B("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};D.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};function E(){}
 E.prototype=D.prototype;function F(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||C}var G=F.prototype=new E;G.constructor=F;m(G,D.prototype);G.isPureReactComponent=!0;var H={current:null},I=Object.prototype.hasOwnProperty,J={key:!0,ref:!0,__self:!0,__source:!0};
@@ -940,7 +940,7 @@ var _assign = __webpack_require__(3);
 var emptyObject = __webpack_require__(4);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(7);
 
 // TODO: this is special because it gets imported during build.
@@ -2333,7 +2333,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 16 */
@@ -2371,7 +2371,7 @@ module.exports = ReactPropTypesSecret;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var ba=__webpack_require__(2),m=__webpack_require__(9),A=__webpack_require__(3),C=__webpack_require__(1),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(12),ja=__webpack_require__(4);
+var ba=__webpack_require__(0),m=__webpack_require__(9),A=__webpack_require__(3),C=__webpack_require__(2),ea=__webpack_require__(10),fa=__webpack_require__(11),ha=__webpack_require__(12),ja=__webpack_require__(4);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}ba?void 0:D("227");
 function ka(a,b,c,d,e,f,h,g,k){this._hasCaughtError=!1;this._caughtError=null;var v=Array.prototype.slice.call(arguments,3);try{b.apply(c,v)}catch(l){this._caughtError=l,this._hasCaughtError=!0}}
 var E={_caughtError:null,_hasCaughtError:!1,_rethrowError:null,_hasRethrowError:!1,invokeGuardedCallback:function(a,b,c,d,e,f,h,g,k){ka.apply(E,arguments)},invokeGuardedCallbackAndCatchFirstError:function(a,b,c,d,e,f,h,g,k){E.invokeGuardedCallback.apply(this,arguments);if(E.hasCaughtError()){var v=E.clearCaughtError();E._hasRethrowError||(E._hasRethrowError=!0,E._rethrowError=v)}},rethrowCaughtError:function(){return ma.apply(E,arguments)},hasCaughtError:function(){return E._hasCaughtError},clearCaughtError:function(){if(E._hasCaughtError){var a=
@@ -2684,12 +2684,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(2);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(9);
 var _assign = __webpack_require__(3);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(7);
 var getActiveElement = __webpack_require__(10);
 var shallowEqual = __webpack_require__(11);
@@ -19188,7 +19188,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 21 */
@@ -19348,112 +19348,111 @@ module.exports = camelize;
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var React = __webpack_require__(2);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Game__ = __webpack_require__(26);
+var React = __webpack_require__(0);
 var ReactDOM = __webpack_require__(8);
+
 
 var container = document.getElementById('app');
 
-const Stars = props => {
-    let stars = [];
-    for (let i = 0; i < props.numberOfStars; i++) {
-        stars.push(React.createElement('i', { key: i, className: 'fa fa-star fa-size' }));
+var possibleCombinationSum = function (arr, n) {
+    if (arr.indexOf(n) >= 0) {
+        return true;
     }
-
-    return React.createElement(
-        'div',
-        { className: 'col-5' },
-        stars
-    );
-};
-
-const Button = props => {
-    let button;
-
-    switch (props.answerIsCorrect) {
-        case true:
-            button = React.createElement(
-                'button',
-                { className: 'btn btn-success', onClick: props.acceptAnswer },
-                React.createElement('i', { className: 'fa fa-check' })
-            );
-            break;
-        case false:
-            button = React.createElement(
-                'button',
-                { className: 'btn btn-danger' },
-                React.createElement('i', { className: 'fa fa-times' })
-            );
-            break;
-        default:
-            button = React.createElement(
-                'button',
-                { className: 'btn', onClick: props.checkAnswer, disabled: props.selectedNumbers.length === 0 },
-                React.createElement(
-                    'i',
-                    { className: 'fa' },
-                    '='
-                )
-            );
-            break;
+    if (arr[0] > n) {
+        return false;
     }
-
-    return React.createElement(
-        'div',
-        { className: 'col-2 text-center' },
-        button,
-        React.createElement('br', null),
-        ' ',
-        React.createElement('br', null),
-        React.createElement(
-            'button',
-            { className: 'btn btn-warning btn-sm', onClick: props.redraw, disabled: props.redraws === 0 },
-            React.createElement('i', { className: 'fa fa-refresh' }),
-            ' ',
-            props.redraws
-        )
-    );
-};
-
-const Answer = props => {
-    return React.createElement(
-        'div',
-        { className: 'col-5' },
-        props.selectedNumbers.map((number, i) => React.createElement(
-            'span',
-            { key: i, onClick: () => props.unselectNumber(number) },
-            number
-        ))
-    );
-};
-
-const Numbers = props => {
-    const numberClassName = number => {
-        if (props.usedNumbers.indexOf(number) >= 0) {
-            return 'used';
+    if (arr[arr.length - 1] > n) {
+        arr.pop();
+        return possibleCombinationSum(arr, n);
+    }
+    var listSize = arr.length,
+        combinationsCount = 1 << listSize;
+    for (var i = 1; i < combinationsCount; i++) {
+        var combinationSum = 0;
+        for (var j = 0; j < listSize; j++) {
+            if (i & 1 << j) {
+                combinationSum += arr[j];
+            }
         }
-        if (props.selectedNumbers.indexOf(number) >= 0) {
-            return 'selected';
+        if (n === combinationSum) {
+            return true;
         }
-    };
-    return React.createElement(
-        'div',
-        { className: 'card text-center' },
-        React.createElement(
-            'div',
-            null,
-            Numbers.list.map((number, i) => React.createElement(
-                'span',
-                { key: i, className: numberClassName(number), onClick: () => props.selectNumber(number) },
-                number
-            ))
-        )
-    );
+    }
+    return false;
 };
-Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-class Game extends React.Component {
+class App extends React.Component {
+    render() {
+        const numberList = [{
+            number: 1,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 2,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 3,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 4,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 5,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 6,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 7,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 8,
+            isSelected: false,
+            isUsed: false
+        }, {
+            number: 9,
+            isSelected: false,
+            isUsed: false
+        }];
+
+        return React.createElement(__WEBPACK_IMPORTED_MODULE_0__Game__["a" /* default */], { numberList: numberList });
+    }
+}
+
+ReactDOM.render(React.createElement(App, null), container);
+
+/***/ }),
+/* 26 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Stars__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__DoneFrame__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Button__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Answer__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Numbers__ = __webpack_require__(32);
+
+
+
+
+
+
+
+
+class Game extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19461,13 +19460,20 @@ class Game extends React.Component {
             randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
             usedNumbers: [],
             answerIsCorrect: null,
-            redraws: 5
+            redraws: 5,
+            doneStatus: null,
+            numberList: props.numberList
         };
         this.selectNumber = this.selectNumber.bind(this);
-        this.unselectNumber = this.unselectNumber.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
         this.acceptAnswer = this.acceptAnswer.bind(this);
         this.redraw = this.redraw.bind(this);
+        this.resetGame = this.resetGame.bind(this);
+        this.handleSelectNumber = this.handleSelectNumber.bind(this);
+    }
+
+    resetGame() {
+        this.setState(prevState => initialState);
     }
 
     selectNumber(clickedNumber) {
@@ -19480,17 +19486,19 @@ class Game extends React.Component {
         }));
     }
 
-    unselectNumber(clickedNumber) {
-        this.setState(prevState => ({
-            answerIsCorrect: null,
-            selectedNumbers: prevState.selectedNumbers.filter(number => number !== clickedNumber)
-        }));
-    }
-
     checkAnswer() {
-        this.setState(prevState => ({
-            answerIsCorrect: prevState.randomNumberOfStars === prevState.selectedNumbers.reduce((acc, n) => acc + n, 0)
-        }));
+        const isAnswerCorrect = this.state.randomNumberOfStars === this.getSumNumbers();
+
+        if (isAnswerCorrect) {
+            console.log(777, this.state.numberList);
+            this.setState({
+                answerIsCorrect: isAnswerCorrect
+            });
+        } else {
+            this.setState({
+                answerIsCorrect: isAnswerCorrect
+            });
+        }
     }
 
     acceptAnswer() {
@@ -19499,7 +19507,7 @@ class Game extends React.Component {
             selectedNumbers: [],
             answerIsCorrect: null,
             randomNumberOfStars: 1 + Math.floor(Math.random() * 9)
-        }));
+        }), this.updateDoneStatus);
     }
 
     redraw() {
@@ -19511,8 +19519,79 @@ class Game extends React.Component {
             selectedNumbers: [],
             answerIsCorrect: null,
             redraws: prevState.redraws - 1
-        }));
+        }), this.updateDoneStatus);
     }
+
+    possibleSolutions({ randomNumberOfStars, usedNumbers }) {
+        const possibleNumbers = __WEBPACK_IMPORTED_MODULE_5__Numbers__["a" /* default */].list = [1, 2, 3, 4, 5, 6, 7, 8, 9].filter(number => usedNumbers.indexOf(number) === -1);
+
+        return possibleCombinationSum(possibleNumbers, randomNumberOfStars);
+    }
+
+    updateDoneStatus() {
+        this.setState(prevState => {
+            if (prevState.usedNumbers.length === 9) {
+                return { doneStatus: 'Done. Nice!' };
+            }
+            if (prevState.redraws === 0 && !this.possibleSolutions(prevState)) {
+                return { doneStatus: 'Game Over!' };
+            }
+        });
+    }
+
+    handleSelectNumber(number) {
+        const { numberList } = this.state;
+        const newList = numberList.map(item => {
+            if (item.number === number) {
+                return Object.assign({}, item, {
+                    isSelected: !item.isSelected
+                });
+            }
+
+            return item;
+        });
+
+        this.setState({
+            numberList: newList,
+            answerIsCorrect: null
+        });
+    }
+
+    handleUsedNumber(number) {
+        const { numberList } = this.state;
+        const newList = numberList.map(item => {
+            if (item.number === number) {
+                return Object.assign({}, item, {
+                    isUsed: !item.isUsed
+                });
+            }
+
+            return item;
+        });
+
+        this.setState({
+            numberList: newList,
+            answerIsCorrect: null
+        });
+    }
+
+    getSelectedItems(numbers) {
+        return numbers.filter(item => item.isSelected);
+    }
+
+    getSumNumbers() {
+        const selectedItems = this.getSelectedItems(this.state.numberList);
+
+        return selectedItems.reduce((newItem, current) => current.number + newItem, 0);
+    }
+
+    // changeUsedParameter(selectedItems) {
+    //     const { numberList } = this.state;
+    //
+    //     numberList.map((item) => {
+    //         selectedItems.some(())
+    //     });
+    // }
 
     render() {
         const {
@@ -19520,52 +19599,412 @@ class Game extends React.Component {
             selectedNumbers,
             answerIsCorrect,
             usedNumbers,
-            redraws
+            redraws,
+            doneStatus,
+            numberList
         } = this.state;
+        const selectedItems = this.getSelectedItems(numberList);
 
-        return React.createElement(
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
             { className: 'container' },
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'h3',
                 null,
                 'Game Nine'
             ),
-            React.createElement('hr', null),
-            React.createElement(
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('hr', null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 { className: 'row' },
-                React.createElement(Stars, { numberOfStars: randomNumberOfStars }),
-                React.createElement(Button, { selectedNumbers: selectedNumbers, checkAnswer: this.checkAnswer, answerIsCorrect: answerIsCorrect,
-                    acceptAnswer: this.acceptAnswer, redraw: this.redraw, redraws: redraws }),
-                React.createElement(Answer, { selectedNumbers: selectedNumbers, unselectNumber: this.unselectNumber })
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Stars__["a" /* default */], { numberOfStars: randomNumberOfStars }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Button__["a" /* default */], {
+                    isActive: selectedItems.length > 0,
+                    selectedNumbers: selectedNumbers,
+                    checkAnswer: this.checkAnswer,
+                    answerIsCorrect: answerIsCorrect,
+                    acceptAnswer: this.acceptAnswer,
+                    redraw: this.redraw,
+                    redraws: redraws
+                }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__Answer__["a" /* default */], {
+                    selectedNumbers: selectedNumbers,
+                    unselectNumber: this.handleSelectNumber,
+                    dataList: selectedItems
+                })
             ),
-            React.createElement('br', null),
-            React.createElement(Numbers, { selectedNumbers: selectedNumbers, selectNumber: this.selectNumber, usedNumbers: usedNumbers })
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+            doneStatus ? __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DoneFrame__["a" /* default */], { resetGame: this.resetGame, doneStatus: doneStatus }) : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Numbers__["a" /* default */], {
+                selectedNumbers: selectedNumbers,
+                selectNumber: this.selectNumber,
+                usedNumbers: usedNumbers,
+                unselectNumber: numberList,
+                dataList: numberList,
+                onSelect: this.handleSelectNumber
+            })
         );
     }
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = Game;
 
-class App extends React.Component {
-    render() {
-        return React.createElement(
-            'div',
-            null,
-            React.createElement(Game, null)
-        );
-    }
-}
-
-ReactDOM.render(React.createElement(App, null), container);
 
 /***/ }),
-/* 26 */
+/* 27 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+const Stars = props => {
+    let stars = [];
+    for (let i = 0; i < props.numberOfStars; i++) {
+        stars.push(__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { key: i, className: "fa fa-star fa-size" }));
+    }
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "col-5" },
+        stars
+    );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Stars);
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+const DoneFrame = props => {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        "div",
+        { className: "text-center" },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "h2",
+            null,
+            props.doneStatus
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("br", null),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "button",
+            { className: "btn btn-secondary", onClick: props.resetGame },
+            "Play Again"
+        )
+    );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (DoneFrame);
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_classnames___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_classnames__);
+
+
+
+// const Button = (props) => {
+//     let button;
+//
+//     switch(props.answerIsCorrect) {
+//         case true:
+//             button =
+//                 <button className="btn btn-success" onClick={props.acceptAnswer}>
+//                     <i className="fa fa-check" />
+//                 </button>;
+//             break;
+//         case false:
+//             button =
+//                 <button className="btn btn-danger">
+//                     <i className="fa fa-times" />
+//                 </button>;
+//             break;
+//         default:
+//             button =
+//                 <button className="btn" onClick={props.checkAnswer} disabled={props.selectedNumbers.length === 0}>
+//                     <i className="fa">=</i>
+//                 </button>;
+//             break;
+//     }
+//
+//     return (
+//         <div className="col-2 text-center">
+//             {button}
+//             <br /> <br />
+//             <button className="btn btn-warning btn-sm" onClick={props.redraw} disabled={props.redraws === 0}>
+//                 <i className="fa fa-refresh"/> {props.redraws}
+//             </button>
+//         </div>
+//     )
+// };
+//
+// export default Button;
+
+class Button extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    getCheckButton() {
+        switch (props.answerIsCorrect) {
+            case true:
+                button = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { className: 'btn btn-success', onClick: props.acceptAnswer },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-check' })
+                );
+                break;
+            case false:
+                button = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { className: 'btn btn-danger' },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-times' })
+                );
+                break;
+            default:
+                button = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'button',
+                    { className: 'btn', onClick: props.checkAnswer, disabled: props.selectedNumbers.length === 0 },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'i',
+                        { className: 'fa' },
+                        '='
+                    )
+                );
+                break;
+        }
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'col-2 text-center' },
+            button,
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+            ' ',
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                { className: 'btn btn-warning btn-sm', onClick: redraw, disabled: props.redraws === 0 },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-refresh' }),
+                ' ',
+                props.redraws
+            )
+        );
+    }
+
+    render() {
+        const { isActive, redraws, checkAnswer, selectedNumbers, answerIsCorrect } = this.props;
+        const compareBtnClasses = __WEBPACK_IMPORTED_MODULE_1_classnames___default()('btn', {
+            disabled: !isActive,
+            ['btn-success']: answerIsCorrect,
+            ['btn-danger']: answerIsCorrect !== null && !answerIsCorrect
+        });
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'col-2 text-center' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                {
+                    className: compareBtnClasses,
+                    onClick: checkAnswer
+                },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    'i',
+                    { className: 'fa' },
+                    '='
+                )
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+            ' ',
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('br', null),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'button',
+                { className: 'btn btn-warning btn-sm', onClick: () => {}, disabled: redraws === 0 },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('i', { className: 'fa fa-refresh' }),
+                ' ',
+                redraws
+            )
+        );
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Button;
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+const Answer = props => {
+    const { dataList, unselectNumber } = props;
+
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'col-5' },
+        dataList.map((item, i) => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'span',
+            { key: i, onClick: () => unselectNumber(item.number, 'isSelected') },
+            item.number
+        ))
+    );
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (Answer);
+
+/***/ }),
+/* 32 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+
+
+// const Numbers = (props) => {
+//     const { unselectNumber } = props;
+//
+//     const numberClassName = (number) => {
+//         if (props.usedNumbers.indexOf(number) >= 0) {
+//             return 'used';
+//         }
+//         if (props.selectedNumbers.indexOf(number) >= 0) {
+//             return 'selected';
+//         }
+//     };
+//
+//     return (
+//         <div className="card text-center">
+//             <div>
+//                 {props.unselectNumber.map((item, i) =>
+//                     <span key={i} onClick={() => props.selectNumber(item.number)}>
+//                         {item.number}
+//                     </span>
+//                 )}
+//             </div>
+//         </div>
+//     );
+// };
+//
+// export default Numbers;
+
+
+class Numbers extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const { unselectNumber, selectNumber, onSelect } = this.props;
+
+        const numberClassName = number => {
+            if (props.usedNumbers.indexOf(number) >= 0) {
+                return 'used';
+            }
+        };
+
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'card text-center' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                'div',
+                null,
+                unselectNumber.map((item, i) => {
+                    const classes = item.isSelected ? 'selected' : '';
+
+                    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        'span',
+                        {
+                            key: i,
+                            className: classes,
+                            onClick: () => onSelect(item.number, 'isSelected')
+                        },
+                        item.number
+                    );
+                })
+            )
+        );
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Numbers;
+
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 27 */
+/* 34 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

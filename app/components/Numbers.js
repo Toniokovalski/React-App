@@ -36,17 +36,17 @@ export default class Numbers extends React.Component {
     render() {
         const { unselectNumber, selectNumber, onSelect } = this.props;
 
-        const numberClassName = (number) => {
-            if (props.usedNumbers.indexOf(number) >= 0) {
-                return 'used';
-            }
-        };
+        // const numberClassName = (number) => {
+        //     if (props.usedNumbers.indexOf(number) >= 0) {
+        //         return 'used';
+        //     }
+        // };
 
         return (
             <div className="card text-center">
                 <div>
                     {unselectNumber.map((item, i) => {
-                        const classes = item.isSelected ? 'selected' : '';
+                        const classes = item.isSelected || item.isUsed ? 'selected' : '';
 
                         return (
                             <span

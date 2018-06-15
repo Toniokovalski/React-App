@@ -77,7 +77,7 @@ export default class Button extends React.Component {
     }
 
     render() {
-        const { isActive, redraws, checkAnswer, selectedNumbers, answerIsCorrect } = this.props;
+        const { isActive, redraws, checkAnswer, answerIsCorrect } = this.props;
         const compareBtnClasses = classNames('btn', {
             disabled: !isActive,
             ['btn-success']: answerIsCorrect,
