@@ -19462,7 +19462,8 @@ class Game extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             answerIsCorrect: null,
             redraws: 5,
             doneStatus: null,
-            numberList: props.numberList
+            numberList: props.numberList,
+            needToReset: false
         };
         this.selectNumber = this.selectNumber.bind(this);
         this.checkAnswer = this.checkAnswer.bind(this);
@@ -19487,14 +19488,45 @@ class Game extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     }
 
     checkAnswer() {
+        const { numberList, needToReset } = this.state;
         const isAnswerCorrect = this.state.randomNumberOfStars === this.getSumNumbers();
 
-        if (isAnswerCorrect) {
-            console.log(777, this.state.numberList);
+        if (needToReset) {
+            const newArray = numberList.map(item => {
+                return Object.assign({}, item, {
+                    isSelected: false
+                });
+            });
+
             this.setState({
+                needToReset: false,
+                randomNumberOfStars: 1 + Math.floor(Math.random() * 9),
+                answerIsCorrect: null,
+                numberList: newArray
+            });
+        }
+
+        if (isAnswerCorrect && !needToReset) {
+            const newArray = numberList.map(item => {
+                if (item.isSelected) {
+                    return Object.assign({}, item, {
+                        isUsed: true
+                    });
+                }
+
+                return item;
+            });
+
+            this.setState({
+                needToReset: true,
+                numberList: newArray,
                 answerIsCorrect: isAnswerCorrect
             });
-        } else {
+
+            setTimeout(() => {
+                console.log(numberList);
+            }, 10);
+        } else if (!needToReset) {
             this.setState({
                 answerIsCorrect: isAnswerCorrect
             });
@@ -19557,23 +19589,26 @@ class Game extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         });
     }
 
-    handleUsedNumber(number) {
-        const { numberList } = this.state;
-        const newList = numberList.map(item => {
-            if (item.number === number) {
-                return Object.assign({}, item, {
-                    isUsed: !item.isUsed
-                });
-            }
-
-            return item;
-        });
-
-        this.setState({
-            numberList: newList,
-            answerIsCorrect: null
-        });
-    }
+    // handleUsedNumber(number) {
+    //     const { numberList } = this.state;
+    //
+    //     const newList = numberList.map((item) => {
+    //         if (item.number === number) {
+    //             return Object.assign({}, item, {
+    //                 isUsed: !item.isUsed
+    //             })
+    //         }
+    //
+    //         return item;
+    //     });
+    //
+    //     console.log(1, newList);
+    //
+    //     this.setState({
+    //         numberList: newList,
+    //         answerIsCorrect: null,
+    //     });
+    // }
 
     getSelectedItems(numbers) {
         return numbers.filter(item => item.isSelected);
@@ -19802,7 +19837,7 @@ class Button extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     }
 
     render() {
-        const { isActive, redraws, checkAnswer, selectedNumbers, answerIsCorrect } = this.props;
+        const { isActive, redraws, checkAnswer, answerIsCorrect } = this.props;
         const compareBtnClasses = __WEBPACK_IMPORTED_MODULE_1_classnames___default()('btn', {
             disabled: !isActive,
             ['btn-success']: answerIsCorrect,
@@ -19965,11 +20000,11 @@ class Numbers extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     render() {
         const { unselectNumber, selectNumber, onSelect } = this.props;
 
-        const numberClassName = number => {
-            if (props.usedNumbers.indexOf(number) >= 0) {
-                return 'used';
-            }
-        };
+        // const numberClassName = (number) => {
+        //     if (props.usedNumbers.indexOf(number) >= 0) {
+        //         return 'used';
+        //     }
+        // };
 
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             'div',
@@ -19978,7 +20013,7 @@ class Numbers extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 'div',
                 null,
                 unselectNumber.map((item, i) => {
-                    const classes = item.isSelected ? 'selected' : '';
+                    const classes = item.isSelected || item.isUsed ? 'selected' : '';
 
                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                         'span',
